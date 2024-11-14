@@ -13,16 +13,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serves static files in the entire client's dist folder
-app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(routes);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.resolve(__dirname, '../../client/dist')));
 
-// Catchall handler for React routes (only for non-API routes)
+// Catch-all route to serve index.html for non-asset requests (React Router)
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.sendFile(path.resolve(__dirname, '../../client/dist/index.html'));
 });
 
 // Test database connection and sync models
