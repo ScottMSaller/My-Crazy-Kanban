@@ -6,6 +6,7 @@ import routes from './routes/index.js';
 import { sequelize } from './models/index.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import seedAll from './seeds/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,6 +34,7 @@ async function startServer() {
         // Start the Express server
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
+            seedAll();
         });
 
     } catch (error) {
