@@ -34,7 +34,6 @@ async function startServer() {
         // Start the Express server
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
-            seedAll();
         });
 
     } catch (error) {
