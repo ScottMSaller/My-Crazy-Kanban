@@ -6,7 +6,6 @@ import routes from './routes/index.js';
 import { sequelize } from './models/index.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import seedAll from './seeds/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
